@@ -4,4 +4,3 @@ version = "0.1.0"
 authors = ["milesrl <soccermiles1@gmail.com>"]
 
 [dependencies]
-chan = "0.1.*"
