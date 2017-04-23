@@ -1,0 +1,26 @@
+make a system for reprogramming at runtime by rerouting I/O
+  between separate nodes that operate as independent threads.
+
+such a system should make it feasible to adjust the function
+  of a long-running process at runtime, without needing to
+  serialize/deserialize state.
+
+one reason we might want this is to provide an easy user-facing
+  runtime configuration interface for long-running services.
+
+another reason is to actively monitor long-running services.
+
+
+
+in order to effectively monitor a service, we will need access to
+  a library of precompiled nodes that the user may use to work
+  with data within the service. these will need to encompass all
+  types the user is likely to work with, and should be easy to
+  produce, so that developers can easily provide an interface
+  to any types they expose.
+
+the problem: I need priorities in terms of binary size, runtime
+  performance, flexibility that will let me decide what kind of
+  format to use, how to provide rerouting and library nodes.
+
+AAARRGGHH JUST FORGET ALL THAT AND PLAY, DAMN YOU!
