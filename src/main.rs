@@ -9,6 +9,16 @@ use std::any::{Any, TypeId};
 use std::marker::Sized;
 use std::rc::Rc;
 
+// REQUIREMENTS FOR PROPER CHANNEL OPERATION WITH A SELECT
+//   - handles must be stored on the heap, to prevent movement
+//       *before they are added to the selection set*
+//   - the whole select structure becomes unstable when
+//       a handle is removed, so it needs to be rebuilt then
+//   - we need a way to tell which receivers are closed so
+//       we can destroy that as well when the handle is closed
+//   - all of this means that the best-performance environment
+//       for rust's channels is one with unchanging structure
+
 fn main() {
     channel_test();
     typing_test();
